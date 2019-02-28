@@ -10,17 +10,15 @@ import static java.lang.System.*;
 
 public class NumberSorter
 {
-	//instance variables and other methods not shown
 
-	private static int getNumDigits(int number)
-	{
-		int count = 0;
-		return count;
-	}
-
-	public static int[] getSortedDigitArray(int number)
+	public static void  getSortedDigitArray(int number)
 	{
 		int[] sorted = null;
+		int count = 0;
+		while(number >= 10){
+			number = number/10;
+			count++;
+		}			
 		return sorted;
 	}
 }
