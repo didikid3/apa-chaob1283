@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import static java.lang.System.*;
 
-class NumberSorter
+public class NumberSorter
 {
 	public static void  getSortedDigitArray(int orig)
 	{
