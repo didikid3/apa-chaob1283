@@ -34,6 +34,7 @@ public class Shape
       window.fillRect(xPos, yPos, width, height);
       int div2 = xPos-(width/4);
       int div2H = yPos -(height/4);
+	window.setColor(color.BLUE);
       window.fillRect((div2,div2H,(width/2),(height/2));
       
 
