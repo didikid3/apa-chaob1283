@@ -43,11 +43,11 @@ public class ShapePanel extends JPanel
 
 		//instantiate a Shape
 		//tell your shape to draw
-
+		Shape.Shape(1,1,100,100,GREEN);
 		//instantiate a Shape
 		//tell your shape to draw
-
+		Shape.Shape(101,101,10,10,RED);
 		//instantiate a Shape
-		//tell your shape to draw
+
 	}
 }
