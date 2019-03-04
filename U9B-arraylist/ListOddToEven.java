@@ -8,8 +8,30 @@ import java.util.List;
 
 public class ListOddToEven
 {
-  public static boolean go( List<Integer> ray )
+  public static int go( List<Integer> ray )
   {
-    return false;
+    int firstOdd = 0;
+    int even = 0;
+    boolean find = false;
+    while(!find&&firstOdd<ray.size()){
+      if(ray.get(firstOdd)%2 !=0)
+        find = true;
+      else{
+        firstOdd++;
+      }
+    }
+    if(firstOdd == ray.size()-1){
+      return -1;
+    }
+    find = false;
+    even = firstOdd;
+    while(!find&&even<ray.size()){
+        if(ray.get(even)%2 == 0)
+          find = true;
+        else{
+          even ++;
+        }
+    }
+    return even-firstOdd;
   }
 }
