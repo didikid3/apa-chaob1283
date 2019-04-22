@@ -26,19 +26,18 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
     
 
     //instantiate a Ball
-		ball = new Ball(200,200,10,10,Color.red,3,1);
+	ball = new Ball(200,200,10,10,Color.red,3,1);
 		
 		
     //instantiate a left Paddle
-		leftPaddle = new Paddle(10,10,30,50,Color.blue,8);
+	leftPaddle = new Paddle(10,10,30,50,Color.blue,8);
 		
 		
 		
     //instantiate a right Paddle
-		rightPaddle = new Paddle(400,10,30,50,Color.red,8);
-		keys = new boolean[5];
-
-
+	rightPaddle = new Paddle(400,10,30,50,Color.red,8);
+	
+	keys = new boolean[5];
     //set up the Canvas
     setBackground(Color.WHITE);
     setVisible(true);
