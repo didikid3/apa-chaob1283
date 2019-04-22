@@ -1,7 +1,7 @@
 public interface Collidable
 {
   public boolean didCollideLeft();
-  public boolean didCollideRight();
+  public boolean didCollideRight(int x);
   public boolean didCollideTop();
-  public boolean didCollideBottom();
+  public boolean didCollideBottom(int x);
 }
