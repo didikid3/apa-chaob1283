@@ -6,6 +6,7 @@ JC = javac
 
 CLASSES = \
 	Block.java \
+	Wall.java \
 	Locatable.java \
 	Ball.java \
 	Collidable.java \
