@@ -5,7 +5,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ball extends Block
+public class Ball extends Block implements Collidable
 {
   private int xSpeed;
   private int ySpeed;
@@ -50,7 +50,28 @@ public class Ball extends Block
   {
     ySpeed = y;
   }
-	  
+	
+  public boolean didCollideLeft()
+  {
+
+    if(getX() <=0)
+      return true;
+  }
+  public boolean didCollideRight(int x)
+  {
+    if(getX() >= x -obj.getWidth())
+      return true;
+  }
+  public boolean didCollideTop()
+  {
+    if(getY()<=0)
+      return true;
+  }
+  public boolean didCollideBottom(int x)
+  {
+    if(getY() >= x - obj.getHeight())
+      return true;
+  }
    
   
   public void moveAndDraw(Graphics window)
