@@ -14,15 +14,22 @@ public class Pong extends Canvas implements KeyListener, Runnable
   private Ball ball;
   private Paddle leftPaddle;
   private Paddle rightPaddle;
+  
   private boolean[] keys;
   private BufferedImage back;
   private Score score;
-  private int width = 1000;
-  private int height = 1000;
+
+  private int width = 800;
+  private int height = 600;
   private int obj_width = 10;
   private int paddle_height = 60;
   private int paddle_locationL;
   private int paddle_locationR;
+
+  private Wall left;
+  private Wall right;
+  private Wall top;
+  private Wall bottom;
 
 
   public Pong(int x, int y)
@@ -30,9 +37,16 @@ public class Pong extends Canvas implements KeyListener, Runnable
     width = x;
     height = y;
 
-    ball = new Ball(width/2,height/2,obj_width,obj_width,Color.red,2,1);
+    ball = new Ball(200,200,obj_width,obj_width,Color.red,2,1);
+
     leftPaddle = new Paddle(0,0,obj_width,paddle_height,Color.blue,2);
-    rightPaddle = new Paddle(width-obj_width,0,obj_width,paddle_heigth,Color.red,2);
+    rightPaddle = new Paddle(width-obj_width,0,obj_width,paddle_height,Color.red,2);
+
+    left = new Wall(0,0,1,height);
+    right = new Wall(width-1,0,1,height);
+    top = new Wall(0,0,width,1);
+    bottom = new Wall(0,height-1,width,1);
+
     keys = new boolean[4];
     score = new Score();
     setBackground(Color.WHITE);
@@ -48,7 +62,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
   public void paint(Graphics window)
   {
-
+    left.draw(window);
+    right.draw(window);
+    top.draw(window);
+    bottom.draw(window);
     ball.moveAndDraw(window);
     leftPaddle.draw(window);
     rightPaddle.draw(window);
