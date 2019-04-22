@@ -8,6 +8,7 @@ CLASSES = \
 	Block.java \
 	Locatable.java \
 	Ball.java \
+	Collidable.java \
 	Paddle.java \
 	Score.java \
 	Pong.java \
