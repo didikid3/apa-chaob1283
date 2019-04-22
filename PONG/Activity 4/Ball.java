@@ -53,24 +53,27 @@ public class Ball extends Block implements Collidable
 	
   public boolean didCollideLeft()
   {
-
     if(getX() <=0)
       return true;
+    return false;
   }
   public boolean didCollideRight(int x)
   {
-    if(getX() >= x -obj.getWidth())
+    if(getX() >= x -getWidth())
       return true;
+    return false;
   }
   public boolean didCollideTop()
   {
     if(getY()<=0)
       return true;
+    return false;
   }
   public boolean didCollideBottom(int x)
   {
-    if(getY() >= x - obj.getHeight())
+    if(getY() >= x - getHeight())
       return true;
+    return false;
   }
    
   
