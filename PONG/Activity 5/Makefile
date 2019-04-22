@@ -6,11 +6,16 @@ JC = javac
 
 CLASSES = \
 	Block.java \
+	Wall.java \
 	Locatable.java \
 	Ball.java \
-	BallTestOne.java \
-	BallTestTwo.java \
-	Tester.java
+	BlinkyBall.java \
+	SpeedUpBall.java \
+	Collidable.java \
+	Paddle.java \
+	Score.java \
+	Pong.java \
+	TheGame.java 
 
 default: classes
 
