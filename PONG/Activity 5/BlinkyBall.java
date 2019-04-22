@@ -48,8 +48,8 @@ class BlinkyBall extends Ball
     //draw a white ball at old ball location
     draw(window, Color.white);
 
-    setX(getXPos()+getXSpeed());
-    setY(getYPos()+getYSpeed());
+    setX(getPosX()+getXSpeed());
+    setY(getPosY()+getYSpeed());
     //draw the ball at its new location
     draw(window,randomColor());
   }
