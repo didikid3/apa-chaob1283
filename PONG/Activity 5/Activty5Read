@@ -1,0 +1,2 @@
+Files for Activty 5, in current state default ball is being used. Replacing Object Ball in Pong.java to SpeedUpBall or BlinkyBall
+will allow for use.
