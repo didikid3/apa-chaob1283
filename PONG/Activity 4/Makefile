@@ -8,9 +8,10 @@ CLASSES = \
 	Block.java \
 	Locatable.java \
 	Ball.java \
-	BallTestOne.java \
-	BallTestTwo.java \
-	Tester.java
+	Paddle.java \
+	Score.java \
+	Pong.java \
+	TheGame.java
 
 default: classes
 
