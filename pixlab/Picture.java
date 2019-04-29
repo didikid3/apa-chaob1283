@@ -547,13 +547,121 @@ public class Picture extends SimplePicture
           triggers++;
 
         // else set the color to black
-        if(triggers>3)
+        if(triggers>2)
           current.setColor(Color.WHITE);
         else
           current.setColor(Color.BLACK);
       }
     }
 
+  }
+
+  public void blur(int x, int y, int width, int height)
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel current = null;
+    Pixel around = null;
+    int avgG=0;
+    int avgB=0;
+    int avgR=0;
+    int count =0;
+    for(int r=y; r<(y+height); r++)
+    {
+      for(int c=x; c<(x+width);c++)
+      {
+        count =0;
+        avgG =0;
+        avgB=0;
+        avgR=0;
+        current= pixels[r][c];
+        for(int row=-1;row<2;row++)
+        {
+          for(int col=-1;col<2;col++)
+          {
+            if((r+row)>=0 && (r+row)<=(pixels.length-1)&&
+              (c+col)>=0 && (c+col)<=(pixels[r].length-1))
+              {
+                avgG += pixels[row+r][col+c].getGreen();
+                avgB += pixels[row+r][col+c].getBlue();
+                avgR += pixels[row+r][col+c].getRed();
+                count++;
+              }
+          }
+        }
+        /*
+        //Taking the Pixel Data from each point that touches a
+        //Certain Pixel, If the pixel doesn't exist, ignore
+        around = pixels[r][c];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        if(r!= (pixels.length-1)){
+        around = pixels[r+1][c];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        if(r!= (pixels.length -1) && c!=0){
+        around = pixels[r+1][c-1];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        if(r!= (pixels.length-1) &&c!=(pixels[0].length-1)){
+        around = pixels[r+1][c+1];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        if(r!=0){
+        around = pixels[r-1][c];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count ++;
+        }
+        if(r!=0 && c!= (pixels[0].length-1)){
+        around = pixels[r-1][c+1];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        if(r!=0 && c!=0){
+        around = pixels[r-1][c-1];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        if(c!=(pixels[0].length-1)){
+        around = pixels[r][c+1];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        if(c!=0){
+        around = pixels[r][c-1];
+        avgG += around.getGreen();
+        avgB += around.getBlue();
+        avgR += around.getRed();
+        count++;
+        }
+        */
+        avgG = avgG/count;
+        avgB = avgB/count;
+        avgR = avgR/count;
+
+        pixels[r][c].setRed(avgR);
+        pixels[r][c].setGreen(avgG);
+        pixels[r][c].setBlue(avgB);
+      }
+    }
   }
   
   /* Main method for testing - each class in Java can have a main 
