@@ -559,8 +559,6 @@ public class Picture extends SimplePicture
   public void blur(int x, int y, int width, int height)
   {
     Pixel[][] pixels = this.getPixels2D();
-    Pixel current = null;
-    Pixel around = null;
     int avgG=0;
     int avgB=0;
     int avgR=0;
@@ -573,7 +571,6 @@ public class Picture extends SimplePicture
         avgG =0;
         avgB=0;
         avgR=0;
-        current= pixels[r][c];
         for(int row=-1;row<2;row++)
         {
           for(int col=-1;col<2;col++)
