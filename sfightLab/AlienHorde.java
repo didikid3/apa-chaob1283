@@ -68,7 +68,7 @@ public class AlienHorde
             y.getY()>=x.getY() &&
             y.getY()<=(x.getY()+sides) )
             {
-              aliens.remove(countAlien);
+              aliens.get(countAlien).dead();
               shots.remove(countAmmo);
               countAlien--;
               countAmmo--;
@@ -80,9 +80,18 @@ public class AlienHorde
   }
   public boolean loose()
   {
-    if(aliens.get(0).getY() >=600)
+    if(aliens.get(aliens.size()-1).getY() >=600)
       return true;
     return false;
+  }
+  public boolean win()
+  {
+    for(Alien al:aliens)
+    {
+      if(al.alive())
+        return false;
+    }
+    return true;
   }
   public int returnGap()
   {
