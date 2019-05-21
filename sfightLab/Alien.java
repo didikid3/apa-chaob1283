@@ -13,6 +13,7 @@ public class Alien extends MovingThing
 {
   private int speed;
   private Image image;
+  private boolean alive = true;
 
   public Alien()
   {
@@ -54,6 +55,10 @@ public class Alien extends MovingThing
     return speed;
   }
 
+  public boolean alive()
+  {
+    return alive;
+  }
   public void move(String x)
   {
     if(x.equals("UP"))
@@ -65,13 +70,23 @@ public class Alien extends MovingThing
     if(x.equals("DOWN"))
       setY(getY()+speed);
   }
+  public void dead()
+  {
+    alive = false;
+    setX(-100);
+    setY(-100);
+    setSpeed(0);
+  }
   public void move()
   {
-    setX(getX()+speed);
-    if(getX() < -30 || getX() > 810)
+    if(alive)
     {
-      setY(getY()+(getWidth()*2));
-      setSpeed(-getSpeed());
+      setX(getX()+speed);
+      if(getX() < -30 || getX() > 810)
+      {
+        setY(getY()+(getWidth()*2));
+        setSpeed(-getSpeed());
+      }
     }
   }
 
