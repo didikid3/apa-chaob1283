@@ -85,7 +85,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
     horde.removeDeadOnes(shots.getList());
 
-    if(horde.returnList().size() == 0)
+    if(horde.win())
     {
       graphToBack.setColor(Color.BLACK);
       graphToBack.fillRect(0,0,800,600);
@@ -93,6 +93,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
       graphToBack.drawString("GAME WON! ", 400, 300);
       control = false;
     }
+
     if(horde.loose())
     {
       graphToBack.setColor(Color.BLACK);
